@@ -17,7 +17,7 @@ const Header = (props) => {
 
     return (
         <Navbar dark expand='md'>
-            <div className='container'>
+            <div className='container navbar-container'>
                 <NavbarBrand href='/'>
                     <img src={LogoSmall} alt='Strumr Logo Small' />
                 </NavbarBrand>

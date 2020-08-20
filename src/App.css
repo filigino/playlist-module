@@ -1,12 +1,11 @@
 .container {
-    max-width: 75%;
+    max-width: 75.1%;
 }
 
 .landing {
     background-color: #101010;
     background-image: url('./imgs/Background Image.svg');
-    background-position: center;
-    background-position: center;
+    background-position: 53.1% 41.4%;
     background-repeat: no-repeat;
     height: 100vh;
 }
@@ -23,6 +22,10 @@
     font-family: 'Titillium Web', sans-serif;
     font-size: 20px;
     font-weight: 300;
+}
+
+.navbar-container {
+    padding: 0;
 }
 
 .navbar-dark {
