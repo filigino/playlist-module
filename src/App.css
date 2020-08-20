@@ -27,7 +27,7 @@
 
 .navbar-dark {
     background-color: #212121;
-    height: 86px;
+    min-height: 86px;
 }
 
 .navbar-headings {
