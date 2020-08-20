@@ -1,3 +1,30 @@
+.container {
+    max-width: 75%;
+}
+
+.landing {
+    background-color: #101010;
+    background-image: url('./imgs/Background Image.svg');
+    background-position: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.main-heading {
+    color: #ffffff;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 55px;
+    font-weight: 300;
+}
+
+.main-text {
+    color: #ffffff;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+
 .navbar-dark {
     background-color: #212121;
     height: 86px;
@@ -8,4 +35,8 @@
     font-family: 'Titillium Web', sans-serif;
     font-size: 16px;
     font-weight: 300;
+}
+
+.semibold {
+    font-weight: 600;
 }

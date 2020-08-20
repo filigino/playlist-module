@@ -8,6 +8,7 @@ import {
     NavItem,
     NavLink
 } from 'reactstrap'
+import LogoSmall from '../imgs/Strumr Logo Small.svg'
 
 const Header = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,7 @@ const Header = (props) => {
         <Navbar dark expand='md'>
             <div className='container'>
                 <NavbarBrand href='/'>
-                    <img src='assets/imgs/Strumr Logo Small.svg' alt='Strumr Logo Small' />
+                    <img src={LogoSmall} alt='Strumr Logo Small' />
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
