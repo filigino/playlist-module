@@ -1,13 +1,15 @@
-import React from 'react';
-import Landing from './components/Landing';
-import './App.css';
+import React from 'react'
+import {Provider} from 'react-redux'
+import store from './redux/store'
+import Landing from './components/Landing'
+import './App.css'
 
-function App() {
-  return (
-    <div>
-        <Landing />
-    </div>
-  );
+const App = () => {
+    return (
+        <Provider store={store}>
+            <Landing />
+        </Provider>
+    )
 }
 
-export default App;
+export default App
