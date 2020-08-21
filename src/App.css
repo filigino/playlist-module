@@ -48,12 +48,6 @@
     background-color: #212121
 }
 
-.modal-dialog {
-    /* background-color: red; */
-    height: 100%;
-    width: 100%;
-}
-
 .modal-backdrop {
     background-color: #101010
 }
@@ -89,7 +83,7 @@ ol {
 li { display: block; }
 
 li:before { 
-    content: counter(item) "  "; 
+    content: counter(item) '  '; 
     counter-increment: item 
 }
 

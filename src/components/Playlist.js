@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'
 import { Tooltip } from 'reactstrap'
 import {
@@ -16,12 +16,19 @@ import RemoveButton from '../imgs/Remove Icon.svg'
 const Playlist = ({
     playlist, onSendToTopClick, onBumpUpClick, onSendDownClick, onRemoveClick
 }) => {
+    const [now, setNow] = useState(Date.now())
+    // Update now value every minute
+    useEffect(() => {
+        setInterval(() => setNow(Date.now()), 60000)
+    })
+
     return (
         <ol className='numbers'>
             {playlist.map((song) =>
                 <Song
                     {...song}
                     key={song.id}
+                    now={now}
                     onSendToTopClick={() => onSendToTopClick(song.id)}
                     onBumpUpClick={() => onBumpUpClick(song.id)}
                     onSendDownClick={() => onSendDownClick(song.id)}
@@ -34,7 +41,7 @@ const Playlist = ({
 
 // presentational component
 const Song = ({
-    artist, title, duration, id, onSendToTopClick, onBumpUpClick,
+    artist, title, duration, timeAdded, now, onSendToTopClick, onBumpUpClick,
     onSendDownClick, onRemoveClick
 }) => {
     const [sendToTopTooltipOpen, setSendToTopTooltipOpen] = useState(false)
@@ -47,38 +54,73 @@ const Song = ({
     const toggleSendDownTooltip = () => setSendDownTooltipOpen(!sendDownTooltipOpen)
     const toggleRemoveTooltip = () => setRemoveTooltipOpen(!removeTooltipOpen)
 
+    const formatTime = (time, now) => {
+        let timePassed = now - time // in milliseconds
+
+        if (timePassed < 60000) { // 1 min
+            return 'Just now'
+        } else if (timePassed < 120000) { // 2 mins
+            return '1 minute ago'
+        } else if (timePassed < 3600000) { // 1 hour
+            return Math.floor(timePassed / 60000) + ' minutes ago'
+        } else if (timePassed < 7200000) { // 2 hours
+            return '1 hour ago'
+        } else if (timePassed < 86400000) { // 24 hours
+            return Math.floor(timePassed / (60000 * 60)) + ' hours ago'
+        } else {
+            return 'Over a day ago'
+        }
+    }
+
     return (
         <li>
             <div className='row'>
                 <div className='col song-name'>
-                    {artist} {title}
+                    {artist} - {title}
                 </div>
                 <div className='col numbers'>
-                    {duration}
+                    <div className='row'>
+                        {duration}
+                    </div>
+                    <div className='row time-added'>
+                        {formatTime(timeAdded, now)}
+                    </div>
                 </div>
                 <div className='col'>
                     <button onClick={onSendToTopClick} id='sendToTop' className='button'>
                         <img src={SendToTopButton} alt='Send to Top' />
                     </button>
-                    <Tooltip placement='bottom' isOpen={sendToTopTooltipOpen} target='sendToTop' toggle={toggleSendToTopTooltip}>
+                    <Tooltip
+                        placement='bottom' isOpen={sendToTopTooltipOpen}
+                        target='sendToTop' toggle={toggleSendToTopTooltip}
+                    >
                         Send to Top
                     </Tooltip>
                     <button onClick={onBumpUpClick} id='bumpUp' className='button'>
                         <img src={BumpUpButton} alt='Bump Up' />
                     </button>
-                    <Tooltip placement='bottom' isOpen={bumpUpTooltipOpen} target='bumpUp' toggle={toggleBumpUpTooltip}>
+                    <Tooltip
+                        placement='bottom' isOpen={bumpUpTooltipOpen}
+                        target='bumpUp' toggle={toggleBumpUpTooltip}
+                    >
                         Bump Up
                     </Tooltip>
                     <button onClick={onSendDownClick} id='sendDown' className='button'>
                         <img src={SendDownButton} alt='Send Down' />
                     </button>
-                    <Tooltip placement='bottom' isOpen={sendDownTooltipOpen} target='sendDown' toggle={toggleSendDownTooltip}>
+                    <Tooltip
+                        placement='bottom' isOpen={sendDownTooltipOpen}
+                        target='sendDown' toggle={toggleSendDownTooltip}
+                    >
                         Send Down
                     </Tooltip>
                     <button onClick={onRemoveClick} id='remove' className='button'>
                         <img src={RemoveButton} alt='Remove' />
                     </button>
-                    <Tooltip placement='bottom' isOpen={removeTooltipOpen} target='remove' toggle={toggleRemoveTooltip}>
+                    <Tooltip
+                        placement='bottom' isOpen={removeTooltipOpen}
+                        target='remove' toggle={toggleRemoveTooltip}
+                    >
                         Remove Media
                     </Tooltip>
                 </div>

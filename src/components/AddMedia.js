@@ -37,10 +37,13 @@ let AddSong = ({dispatch}) => {
             </div>
             <div className='col'>
                 <button onClick={() => {
-                    dispatch(addSong(artist.value, title.value, duration.value))
-                    artist.value = ''
-                    title.value = ''
-                    duration.value = ''
+                    // input validation
+                    if (artist.value !== '' && title.value !== '' && duration.value !== '') {
+                        dispatch(addSong(artist.value, title.value, duration.value))
+                        artist.value = ''
+                        title.value = ''
+                        duration.value = ''
+                    }
                 }} className='button'
                 >
                     <img src={AddMediaButton} alt='Add Media' />

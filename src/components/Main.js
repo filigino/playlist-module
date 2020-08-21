@@ -19,10 +19,14 @@ const Main = (props) => {
                         <img src={LogoBig} alt='Strumr Logo Big' />
                     </div>
                     <div className='col-12 col-md-6 main-heading'>
-                        Safely share <span className='semibold'>any music</span> with your <span className='semibold'>Twitch community.</span>
+                        Safely share
+                        <span className='semibold'> any music </span>
+                        with your
+                        <span className='semibold'> Twitch community.</span>
                     </div>
                     <div className='col-12 main-text'>
-                        Got curious? <span className='semibold'>See how it works</span> !
+                        Got curious?
+                        <span className='semibold'> See how it works</span> !
                     </div>
                     <div className='col-12'>
                         <button onClick={toggle} className='button'>
@@ -33,7 +37,6 @@ const Main = (props) => {
             </div>
             <div className='container'>
                 <Modal
-                    modalClassName='modal-dialog'
                     backdropClassName='modal-backdrop'
                     contentClassName='modal-content'
                     size='xl'

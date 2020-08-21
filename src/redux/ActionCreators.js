@@ -1,4 +1,3 @@
-// action creators
 let nextSongId = 0
 export const addSong = (artist, title, duration) => {
     return {
@@ -6,7 +5,8 @@ export const addSong = (artist, title, duration) => {
         id: nextSongId++,
         artist,
         title,
-        duration
+        duration,
+        timeAdded: Date.now()
         // thumbnail
     }
 }

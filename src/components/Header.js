@@ -26,11 +26,16 @@ const Header = (props) => {
                     <Nav className='ml-auto' navbar>
                         <NavItem>
                             <NavLink href='/'>
-                                <span className='navbar-headings'>Learn More</span>
+                                <span className='navbar-headings'>
+                                    Learn More
+                                </span>
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href='https://discord.com/' target='_blank' rel='noopener noreferrer'>
+                            <NavLink
+                                href='https://discord.com/' target='_blank'
+                                rel='noopener noreferrer'
+                            >
                                 <span className='navbar-headings'>
                                     Discord
                                 </span>
