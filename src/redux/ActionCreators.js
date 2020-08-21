@@ -1,10 +1,13 @@
 // action creators
 let nextSongId = 0
-export const addSong = (text) => {
+export const addSong = (artist, title, duration) => {
     return {
         type: 'ADD_SONG',
         id: nextSongId++,
-        text
+        artist,
+        title,
+        duration
+        // thumbnail
     }
 }
 
@@ -29,9 +32,9 @@ export const bumpUp = (id) => {
     }
 }
 
-export const bumpDown = (id) => {
+export const sendDown = (id) => {
     return {
-        type: 'BUMP_DOWN',
+        type: 'SEND_DOWN',
         id
     }
 }

@@ -1,3 +1,17 @@
+.add-media-headings {
+    color: #ffffff;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.add-media-placeholders {
+    color: #9a9a9a;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
 .button {
     background: none;
     border: none;
@@ -30,6 +44,20 @@
     font-weight: 300;
 }
 
+.modal-content {
+    background-color: #212121
+}
+
+.modal-dialog {
+    /* background-color: red; */
+    height: 100%;
+    width: 100%;
+}
+
+.modal-backdrop {
+    background-color: #101010
+}
+
 .navbar-container {
     padding: 0;
 }
@@ -46,6 +74,39 @@
     font-weight: 300;
 }
 
+.numbers {
+    color: #ffffff;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+ol { 
+    counter-reset: item;
+    list-style-type: none;
+}
+
+li { display: block; }
+
+li:before { 
+    content: counter(item) "  "; 
+    counter-increment: item 
+}
+
 .semibold {
     font-weight: 600;
+}
+
+.song-name {
+    color: #ffffff;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.time-added {
+    color: #9a9a9a;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
 }

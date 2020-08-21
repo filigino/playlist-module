@@ -1,8 +1,13 @@
-// [{id, text}...{}]
 const playlist = (state = [], action) => {
     switch (action.type) {
         case 'ADD_SONG':
-            return [...state, {id: action.id, text: action.text}]
+            return [...state, {
+                id: action.id,
+                artist: action.artist,
+                title: action.title,
+                duration: action.duration
+                // thumbnail: action.thumbnail
+            }]
         case 'REMOVE_SONG':
             return state.filter(song => song.id !== action.id)
         case 'SEND_TO_TOP':
@@ -14,7 +19,7 @@ const playlist = (state = [], action) => {
             } else {
                 return [...state.slice(0, indexUp - 1), state[indexUp], state[indexUp - 1], ...state.slice(indexUp + 1)]  
             } 
-        case 'BUMP_DOWN':
+        case 'SEND_DOWN':
             let indexDown = state.findIndex(song => song.id === action.id)
             if (indexDown === state.length - 1) {
                 return state

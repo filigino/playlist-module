@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactModal from 'react-modal'
+import { Modal } from 'reactstrap'
 import AddMedia from './AddMedia'
 import VisiblePlaylist from './Playlist'
 import LogoBig from '../imgs/Strumr Logo Big.svg'
@@ -31,19 +32,19 @@ const Main = (props) => {
                 </div>
             </div>
             <div className='container'>
-                <ReactModal 
+                <Modal
+                    modalClassName='modal-dialog'
+                    backdropClassName='modal-backdrop'
+                    contentClassName='modal-content'
+                    size='xl'
                     isOpen={isModalOpen}
                 >
                     <button onClick={toggle}>Close Modal</button>
                     <div className='container'>
-                        <div className='row'>
-                            <VisiblePlaylist />
-                        </div>
-                        <div className='row'>
-                            <AddMedia />
-                        </div>
+                        <VisiblePlaylist />
+                        <AddMedia />
                     </div>
-                </ReactModal>
+                </Modal>
             </div>
         </>
     )

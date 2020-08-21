@@ -11,9 +11,9 @@ import {
 import LogoSmall from '../imgs/Strumr Logo Small.svg'
 
 const Header = (props) => {
-    const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+    const [navbarOpen, setNavbarOpen] = useState(false);
 
-    const toggle = () => setIsNavbarOpen(!isNavbarOpen);
+    const toggle = () => setNavbarOpen(!navbarOpen);
 
     return (
         <Navbar dark expand='md'>
@@ -22,7 +22,7 @@ const Header = (props) => {
                     <img src={LogoSmall} alt='Strumr Logo Small' />
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isNavbarOpen} navbar>
+                <Collapse isOpen={navbarOpen} navbar>
                     <Nav className='ml-auto' navbar>
                         <NavItem>
                             <NavLink href='/'>
