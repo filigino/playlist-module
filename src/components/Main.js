@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import ReactModal from 'react-modal'
-import { Modal } from 'reactstrap'
+import { Modal, ModalFooter } from 'reactstrap'
 import AddMedia from './AddMedia'
 import PlaylistModal from './Playlist'
+import ListIcon from '../imgs/List Icon.svg'
 import LogoBig from '../imgs/Strumr Logo Big.svg'
 import PlaylistButton from '../imgs/Setup Playlist Button.svg'
 
@@ -13,42 +13,50 @@ const Main = (props) => {
 
     return (
         <>
-            <div className='container'>
+            <div className='container main-container'>
                 <div className='row'>
                     <div className='col-12'>
                         <img src={LogoBig} alt='Strumr Logo Big' />
+                        <br/><br/>
                     </div>
-                    <div className='col-12 col-md-6 main-heading'>
+                    <div className='col-12 col-md-8 main-heading'>
                         Safely share
                         <span className='semibold'> any music </span>
                         with your
                         <span className='semibold'> Twitch community.</span>
                     </div>
                     <div className='col-12 main-text'>
+                        <br/>
                         Got curious?
                         <span className='semibold'> See how it works</span> !
+                        <br/>
                     </div>
                     <div className='col-12'>
+                        <br/>
                         <button onClick={toggle} className='button'>
                             <img src={PlaylistButton} alt='Setup Playlist Button' />
                         </button>
                     </div>
                 </div>
             </div>
-            <div className='container'>
-                <Modal
-                    backdropClassName='modal-backdrop'
-                    contentClassName='modal-content'
-                    size='xl'
-                    isOpen={isModalOpen}
-                >
-                    <button onClick={toggle}>Close Modal</button>
-                    <div className='container'>
-                        <PlaylistModal />
+            <Modal
+                backdropClassName='modal-backdrop'
+                contentClassName='custom-modal-style'
+                size='xl'
+                external={true}
+                scrollable={true}
+                isOpen={isModalOpen}
+            >
+                {/* <button onClick={toggle}>
+                    <img src={ListIcon} alt='List Icon' />
+                </button> */}
+                <div className='container modal-container'>
+                    <PlaylistModal />
+                    <ModalFooter contentClassName='modal-footer'>
                         <AddMedia />
-                    </div>
-                </Modal>
-            </div>
+                    </ModalFooter>
+                </div>
+            </Modal>
         </>
     )
 }

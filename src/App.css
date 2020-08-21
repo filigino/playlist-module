@@ -18,20 +18,24 @@
     padding: 0;
 }
 
-.container {
-    max-width: 75.1%;
-}
-
 .landing {
     background-color: #101010;
     background-image: url('./imgs/Background Image.svg');
-    background-position: 53.1% 41.4%;
+    background-position: -625px -786px;
     background-repeat: no-repeat;
     height: 100vh;
+    max-width: 100%;
+    padding: 0;
 }
 
 .light-gray-background {
     background-color: #383838
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    height: calc(100% - 86px);
 }
 
 .main-heading {
@@ -48,15 +52,29 @@
     font-weight: 300;
 }
 
-.modal-content {
-    background-color: #212121
-}
-
 .modal-backdrop {
     background-color: #101010
 }
 
+.modal-container {
+    max-width: 100%
+}
+
+.modal-xl {
+    max-width: 100%;
+}
+
+.custom-modal-style {
+    background-color: #212121;
+    height: 100vh;
+}
+
+.modal-footer {
+    background-color: #101010
+}
+
 .navbar-container {
+    max-width: 75.1%;
     padding: 0;
 }
 

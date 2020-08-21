@@ -4,7 +4,7 @@ import Main from './Main'
 
 const Landing = () => {
     return (
-        <div className='landing'>
+        <div className='container landing'>
             <Header />
             <Main />
         </div>
