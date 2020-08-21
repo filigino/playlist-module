@@ -75,18 +75,22 @@ const Song = ({
     return (
         <li>
             <div className='row'>
-                <div className='col song-name'>
-                    {artist} - {title}
-                </div>
-                <div className='col numbers'>
-                    <div className='row'>
-                        {duration}
+                <div className='col light-gray-background'>
+                    <div className='row d-flex'>
+                        <div className='col song-name'>
+                            {artist} - {title}
+                        </div>
+                        <div className='col-2'>
+                            <div className='row justify-content-end time-info numbers'>
+                                {duration}
+                            </div>
+                            <div className='row justify-content-end time-info time-added'>
+                                {formatTime(timeAdded, now)}
+                            </div>
+                        </div>
                     </div>
-                    <div className='row time-added'>
-                        {formatTime(timeAdded, now)}
-                    </div>
                 </div>
-                <div className='col'>
+                <div className='col-2'>
                     <button onClick={onSendToTopClick} id='sendToTop' className='button'>
                         <img src={SendToTopButton} alt='Send to Top' />
                     </button>
@@ -155,10 +159,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 // generates container component, including subscribing to store
-const VisiblePlaylist = connect(
+const PlaylistModal = connect(
     mapStateToProps,
     mapDispatchToProps
 )(Playlist)
 // ^2nd function call is presentational component to be connected to store
 
-export default VisiblePlaylist
+export default PlaylistModal

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ReactModal from 'react-modal'
 import { Modal } from 'reactstrap'
 import AddMedia from './AddMedia'
-import VisiblePlaylist from './Playlist'
+import PlaylistModal from './Playlist'
 import LogoBig from '../imgs/Strumr Logo Big.svg'
 import PlaylistButton from '../imgs/Setup Playlist Button.svg'
 
@@ -44,7 +44,7 @@ const Main = (props) => {
                 >
                     <button onClick={toggle}>Close Modal</button>
                     <div className='container'>
-                        <VisiblePlaylist />
+                        <PlaylistModal />
                         <AddMedia />
                     </div>
                 </Modal>

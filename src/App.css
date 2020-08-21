@@ -30,6 +30,10 @@
     height: 100vh;
 }
 
+.light-gray-background {
+    background-color: #383838
+}
+
 .main-heading {
     color: #ffffff;
     font-family: 'Titillium Web', sans-serif;
@@ -103,4 +107,8 @@ li:before {
     font-family: 'Titillium Web', sans-serif;
     font-size: 15px;
     font-weight: 400;
+}
+
+.time-info {
+    padding-right: 24px;
 }
