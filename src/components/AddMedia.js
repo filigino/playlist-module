@@ -6,11 +6,14 @@ import AddMediaButton from '../imgs/Add Media Button.svg'
 // neither presentational nor container component
 // not purely presentational bc of dispatch
 let AddSong = ({dispatch}) => {
-    const [file, setFile] = useState([])
+    const [file, setFile] = useState(null)
+    const [inputKey, setInputKey] = useState(Date.now())
     const handleChange = (event) => {
-        setFile(URL.createObjectURL(event.target.files[0]))
-        // file.push()
-        // setFile(event.target.files[0])
+        if (event.target.files[0]) {
+            setFile(URL.createObjectURL(event.target.files[0]))
+        } else {
+            setFile(null)
+        }
     }
 
     const validateArtist = (artist) => {
@@ -100,17 +103,19 @@ let AddSong = ({dispatch}) => {
                     Thumbnail
                 </div>
                 <div className='col add-media-placeholders'>
-                    <input type='file' onChange={handleChange} />
+                    <input type='file' key={inputKey} onChange={handleChange} />
                     <img src={file} style={{maxHeight: '42px', maxWidth: '75px'}}/>
                 </div>
                 <div className='col'>
                     <button onClick={() => {
                         // input validation
                         if (validateArtist(artist.value) && validateTitle(title.value) && validateDuration(duration.value)) {
-                            dispatch(addSong(artist.value, title.value, trimLeadingZero(duration.value)))
+                            dispatch(addSong(artist.value, title.value, trimLeadingZero(duration.value), file))
                             artist.value = ''
                             title.value = ''
                             duration.value = ''
+                            setInputKey(Date.now())
+                            setFile(null)
                         }
                     }} className='button'
                     >

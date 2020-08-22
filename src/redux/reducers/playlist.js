@@ -7,8 +7,8 @@ const playlist = (state = [], action) => {
                     artist: action.artist,
                     title: action.title,
                     duration: action.duration,
-                    timeAdded: action.timeAdded
-                    // thumbnail: action.thumbnail
+                    timeAdded: action.timeAdded,
+                    thumbnail: action.thumbnail
                 },
                 ...state
             ]

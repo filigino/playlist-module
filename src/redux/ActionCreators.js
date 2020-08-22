@@ -1,13 +1,13 @@
 let nextSongId = 0
-export const addSong = (artist, title, duration) => {
+export const addSong = (artist, title, duration, thumbnail) => {
     return {
         type: 'ADD_SONG',
         id: nextSongId++,
         artist,
         title,
         duration,
+        thumbnail,
         timeAdded: Date.now()
-        // thumbnail
     }
 }
 

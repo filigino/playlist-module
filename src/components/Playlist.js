@@ -49,7 +49,7 @@ const Playlist = ({
 
 // presentational component
 const Song = ({
-    artist, title, duration, timeAdded, now, onSendToTopClick, onBumpUpClick,
+    artist, title, duration, thumbnail, timeAdded, now, onSendToTopClick, onBumpUpClick,
     onSendDownClick, onRemoveClick
 }) => {
     const [sendToTopTooltipOpen, setSendToTopTooltipOpen] = useState(false)
@@ -87,7 +87,11 @@ const Song = ({
                 <div className='col playlist-song'>
                     <div className='row'>
                         <div className='col-1'>
-                            <img src='assets/imgs/music-icon.png' className='img-fluid thumbnail' alt='Music Icon'/>
+                            <img
+                                src={thumbnail ? thumbnail : 'assets/imgs/music-icon.png'}
+                                className='img-fluid thumbnail'
+                                alt='Thumbnail'
+                            />
                         </div>
                         <div className='col song-name'>
                             {artist} - {title}
