@@ -23,19 +23,21 @@ const Playlist = ({
     })
 
     return (
-        <ol className='numbers'>
-            {playlist.map((song) =>
-                <Song
-                    {...song}
-                    key={song.id}
-                    now={now}
-                    onSendToTopClick={() => onSendToTopClick(song.id)}
-                    onBumpUpClick={() => onBumpUpClick(song.id)}
-                    onSendDownClick={() => onSendDownClick(song.id)}
-                    onRemoveClick={() => onRemoveClick(song.id)}
-                />
-            )}
-        </ol>
+        <div className='container playlist-container overflow-auto'>
+            <ol className='numbers'>
+                {playlist.map((song) =>
+                    <Song
+                        {...song}
+                        key={song.id}
+                        now={now}
+                        onSendToTopClick={() => onSendToTopClick(song.id)}
+                        onBumpUpClick={() => onBumpUpClick(song.id)}
+                        onSendDownClick={() => onSendDownClick(song.id)}
+                        onRemoveClick={() => onRemoveClick(song.id)}
+                    />
+                )}
+            </ol>
+        </div>
     )
 }
 
@@ -75,12 +77,15 @@ const Song = ({
     return (
         <li>
             <div className='row'>
-                <div className='col light-gray-background'>
-                    <div className='row d-flex'>
+                <div className='col playlist-song'>
+                    <div className='row'>
+                        <div className='col-1'>
+                            <img src='assets/imgs/music-icon.png' className='img-fluid thumbnail' alt='Music Icon'/>
+                        </div>
                         <div className='col song-name'>
                             {artist} - {title}
                         </div>
-                        <div className='col-2'>
+                        <div className='col'>
                             <div className='row justify-content-end time-info numbers'>
                                 {duration}
                             </div>

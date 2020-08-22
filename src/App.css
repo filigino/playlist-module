@@ -18,6 +18,15 @@
     padding: 0;
 }
 
+.input-fields {
+    background-color: #212121;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    height: 38px;
+    padding: 10px;
+}
+
 .landing {
     background-color: #101010;
     background-image: url('./imgs/Background Image.svg');
@@ -29,13 +38,14 @@
 }
 
 .light-gray-background {
-    background-color: #383838
+    background-color: #383838;
 }
 
 .main-container {
-    display: flex;
     align-items: center;
+    display: flex;    
     height: calc(100% - 86px);
+    max-width: 75.1%;
 }
 
 .main-heading {
@@ -52,12 +62,11 @@
     font-weight: 300;
 }
 
-.modal-backdrop {
-    background-color: #101010
-}
-
 .modal-container {
-    max-width: 100%
+    align-items: flex-end;
+    display: flex;
+    height: 100vh;
+    max-width: 70%;
 }
 
 .modal-xl {
@@ -65,12 +74,8 @@
 }
 
 .custom-modal-style {
-    background-color: #212121;
+    background-color: #101010;
     height: 100vh;
-}
-
-.modal-footer {
-    background-color: #101010
 }
 
 .navbar-container {
@@ -109,6 +114,19 @@ li:before {
     counter-increment: item 
 }
 
+.playlist-container {
+    background-color: #212121;
+    height: 1000vh;
+    max-height: 1000vh;
+    max-width: 70%;
+}
+
+.playlist-song {
+    background-color: #383838;
+    border-radius: 5px;
+    height: 63px;
+}
+
 .semibold {
     font-weight: 600;
 }
@@ -120,6 +138,11 @@ li:before {
     font-weight: 400;
 }
 
+.thumbnail {
+    max-height: 42px;
+    max-width: 75px;
+}
+
 .time-added {
     color: #9a9a9a;
     font-family: 'Titillium Web', sans-serif;
@@ -129,4 +152,19 @@ li:before {
 
 .time-info {
     padding-right: 24px;
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #848484;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    background: linear-gradient(180deg, #6cffe0 0%, #517aee 100%);
+    border-radius: 99px;
 }

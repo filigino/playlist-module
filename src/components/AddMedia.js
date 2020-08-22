@@ -8,9 +8,9 @@ import AddMediaButton from '../imgs/Add Media Button.svg'
 let AddSong = ({dispatch}) => {
     const [file, setFile] = useState([])
     const handleChange = (event) => {
-        // setFile(URL.createObjectURL(event.target.files[0]))
-        file.push()
-        setFile(event.target.files[0])
+        setFile(URL.createObjectURL(event.target.files[0]))
+        // file.push()
+        // setFile(event.target.files[0])
     }
 
     const validateArtist = (artist) => {
@@ -70,41 +70,53 @@ let AddSong = ({dispatch}) => {
     let title
     let duration
     return (
-        <div className='row'>
-            <div className='col add-media-headings'>
-                Media Info
-            </div>
-            <div className='col add-media-placeholders'>
-                <input ref={node => {artist = node}} placeholder={'Artist Name'} />
-            </div>
-            <div className='col add-media-placeholders'>
-                <input ref={node => {title = node}} placeholder={'Song Name'} />
-            </div>
-            <div className='col add-media-placeholders'>
-                <input ref={node => {duration = node}} placeholder={'Song Duration'} />
-            </div>
-            <div className='col add-media-headings'>
-                Thumbnail
-            </div>
-            <div className='col add-media-placeholders'>
-                <input type='file' onChange={handleChange} />
-            </div>
-            <div className='col'>
-                <img src={file} style={{maxHeight: '42px', maxWidth: '75px'}}/>
-            </div>
-            <div className='col'>
-                <button onClick={() => {
-                    // input validation
-                    if (validateArtist(artist.value) && validateTitle(title.value) && validateDuration(duration.value)) {
-                        dispatch(addSong(artist.value, title.value, trimLeadingZero(duration.value)))
-                        artist.value = ''
-                        title.value = ''
-                        duration.value = ''
-                    }
-                }} className='button'
-                >
-                    <img src={AddMediaButton} alt='Add Media' />
-                </button>
+        <div className='container modal-container'>
+            <div className='row'>
+                <div className='col add-media-headings'>
+                    Media Info
+                </div>
+                <div className='col add-media-placeholders'>
+                    <input
+                        ref={node => {artist = node}}
+                        placeholder={'Artist Name'}
+                        className='input-fields'
+                    />
+                </div>
+                <div className='col add-media-placeholders'>
+                    <input
+                        ref={node => {title = node}}
+                        placeholder={'Song Name'}
+                        className='input-fields'
+                    />
+                </div>
+                <div className='col add-media-placeholders'>
+                    <input
+                        ref={node => {duration = node}}
+                        placeholder={'Song Duration'}
+                        className='input-fields'
+                    />
+                </div>
+                <div className='col add-media-headings'>
+                    Thumbnail
+                </div>
+                <div className='col add-media-placeholders'>
+                    <input type='file' onChange={handleChange} />
+                    <img src={file} style={{maxHeight: '42px', maxWidth: '75px'}}/>
+                </div>
+                <div className='col'>
+                    <button onClick={() => {
+                        // input validation
+                        if (validateArtist(artist.value) && validateTitle(title.value) && validateDuration(duration.value)) {
+                            dispatch(addSong(artist.value, title.value, trimLeadingZero(duration.value)))
+                            artist.value = ''
+                            title.value = ''
+                            duration.value = ''
+                        }
+                    }} className='button'
+                    >
+                        <img src={AddMediaButton} alt='Add Media' />
+                    </button>
+                </div>
             </div>
         </div>
     )

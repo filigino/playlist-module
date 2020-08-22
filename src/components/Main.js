@@ -19,7 +19,7 @@ const Main = (props) => {
                         <img src={LogoBig} alt='Strumr Logo Big' />
                         <br/><br/>
                     </div>
-                    <div className='col-12 col-md-8 main-heading'>
+                    <div className='col-12 col-md-6 main-heading'>
                         Safely share
                         <span className='semibold'> any music </span>
                         with your
@@ -40,22 +40,17 @@ const Main = (props) => {
                 </div>
             </div>
             <Modal
-                backdropClassName='modal-backdrop'
                 contentClassName='custom-modal-style'
                 size='xl'
                 external={true}
-                scrollable={true}
+                scrollable='true'
                 isOpen={isModalOpen}
             >
                 {/* <button onClick={toggle}>
                     <img src={ListIcon} alt='List Icon' />
                 </button> */}
-                <div className='container modal-container'>
-                    <PlaylistModal />
-                    <ModalFooter contentClassName='modal-footer'>
-                        <AddMedia />
-                    </ModalFooter>
-                </div>
+                <PlaylistModal />
+                <AddMedia />
             </Modal>
         </>
     )
