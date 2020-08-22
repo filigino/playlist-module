@@ -34,6 +34,21 @@
     height: 100vh;
 }
 
+.custom-upload {
+    align-items: center;
+    background-color: #383838;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    height: 38px;
+    justify-content: center;
+    width: 113px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
 .input-fields {
     background-color: #212121;
     border: none;

@@ -7,12 +7,15 @@ import AddMediaButton from '../imgs/Add Media Button.svg'
 // not purely presentational bc of dispatch
 let AddSong = ({dispatch}) => {
     const [file, setFile] = useState(null)
+    const [fileName, setFileName] = useState(null)
     const [inputKey, setInputKey] = useState(Date.now())
     const handleChange = (event) => {
         if (event.target.files[0]) {
             setFile(URL.createObjectURL(event.target.files[0]))
+            setFileName(event.target.files[0].name)
         } else {
             setFile(null)
+            setFileName(null)
         }
     }
 
@@ -103,8 +106,14 @@ let AddSong = ({dispatch}) => {
                     Thumbnail
                 </div>
                 <div className='col add-media-placeholders'>
-                    <input type='file' key={inputKey} onChange={handleChange} />
+                    <label className='custom-upload'>
+                        <input type='file' key={inputKey} onChange={handleChange} />
+                        Choose File
+                    </label>
                     <img src={file} style={{maxHeight: '42px', maxWidth: '75px'}}/>
+                </div>
+                <div className='col add-media-placeholders'>
+                    {fileName ? fileName : 'No file chosen.'}
                 </div>
                 <div className='col'>
                     <button onClick={() => {
@@ -116,6 +125,7 @@ let AddSong = ({dispatch}) => {
                             duration.value = ''
                             setInputKey(Date.now())
                             setFile(null)
+                            setFileName(null)
                         }
                     }} className='button'
                     >
