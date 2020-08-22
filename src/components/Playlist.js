@@ -7,6 +7,7 @@ import {
     sendDown,
     removeSong
 } from '../redux/ActionCreators'
+import ListIcon from '../imgs/List Icon.svg'
 import SendToTopButton from '../imgs/Send to Top.svg'
 import BumpUpButton from '../imgs/Bump Up.svg'
 import SendDownButton from '../imgs/Send Down.svg'
@@ -14,7 +15,7 @@ import RemoveButton from '../imgs/Remove Icon.svg'
 
 // presentational component
 const Playlist = ({
-    playlist, onSendToTopClick, onBumpUpClick, onSendDownClick, onRemoveClick
+    playlist, onSendToTopClick, onBumpUpClick, onSendDownClick, onRemoveClick, toggle
 }) => {
     const [now, setNow] = useState(Date.now())
     // Update now value every minute
@@ -23,21 +24,26 @@ const Playlist = ({
     })
 
     return (
-        <div className='container playlist-container overflow-auto'>
-            <ol className='numbers'>
-                {playlist.map((song) =>
-                    <Song
-                        {...song}
-                        key={song.id}
-                        now={now}
-                        onSendToTopClick={() => onSendToTopClick(song.id)}
-                        onBumpUpClick={() => onBumpUpClick(song.id)}
-                        onSendDownClick={() => onSendDownClick(song.id)}
-                        onRemoveClick={() => onRemoveClick(song.id)}
-                    />
-                )}
-            </ol>
-        </div>
+        <>
+            <button onClick={toggle} className='close-button'>
+                <img src={ListIcon} alt='List Icon' />
+            </button>
+            <div className='container playlist-container overflow-auto'>
+                <ol className='numbers'>
+                    {playlist.map((song) =>
+                        <Song
+                            {...song}
+                            key={song.id}
+                            now={now}
+                            onSendToTopClick={() => onSendToTopClick(song.id)}
+                            onBumpUpClick={() => onBumpUpClick(song.id)}
+                            onSendDownClick={() => onSendDownClick(song.id)}
+                            onRemoveClick={() => onRemoveClick(song.id)}
+                        />
+                    )}
+                </ol>
+            </div>
+        </>
     )
 }
 
@@ -77,6 +83,7 @@ const Song = ({
     return (
         <li>
             <div className='row'>
+                <div className='col-1'></div>
                 <div className='col playlist-song'>
                     <div className='row'>
                         <div className='col-1'>

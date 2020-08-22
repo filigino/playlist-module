@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Modal, ModalFooter } from 'reactstrap'
 import AddMedia from './AddMedia'
 import PlaylistModal from './Playlist'
-import ListIcon from '../imgs/List Icon.svg'
 import LogoBig from '../imgs/Strumr Logo Big.svg'
 import PlaylistButton from '../imgs/Setup Playlist Button.svg'
 
@@ -42,14 +41,11 @@ const Main = (props) => {
             <Modal
                 contentClassName='custom-modal-style'
                 size='xl'
-                external={true}
                 scrollable='true'
                 isOpen={isModalOpen}
+                toggle={toggle}
             >
-                {/* <button onClick={toggle}>
-                    <img src={ListIcon} alt='List Icon' />
-                </button> */}
-                <PlaylistModal />
+                <PlaylistModal toggle={toggle} />
                 <AddMedia />
             </Modal>
         </>

@@ -18,6 +18,22 @@
     padding: 0;
 }
 
+.close-button {
+    background-color: #212121;
+    border: none;
+    border-radius: 10px;
+    height: 64px;
+    position: relative;
+    top: 60px;
+    left: 225px;
+    width: 78px;
+}
+
+.custom-modal-style {
+    background-color: #101010;
+    height: 100vh;
+}
+
 .input-fields {
     background-color: #212121;
     border: none;
@@ -73,11 +89,6 @@
     max-width: 100%;
 }
 
-.custom-modal-style {
-    background-color: #101010;
-    height: 100vh;
-}
-
 .navbar-container {
     max-width: 75.1%;
     padding: 0;
@@ -111,7 +122,10 @@ li { display: block; }
 
 li:before { 
     content: counter(item) '  '; 
-    counter-increment: item 
+    counter-increment: item;
+    position: relative;
+    top: 40px;
+    left: 40px;
 }
 
 .playlist-container {
@@ -119,12 +133,14 @@ li:before {
     height: 1000vh;
     max-height: 1000vh;
     max-width: 70%;
+    padding-top: 23px;
 }
 
 .playlist-song {
     background-color: #383838;
     border-radius: 5px;
     height: 63px;
+    margin-bottom: 14px;
 }
 
 .semibold {
